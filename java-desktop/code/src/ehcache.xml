@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <diskStore path="java.io.tmpdir"/>
+     <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+      />
+      <cache name="com.googlecode.projecttemplate.model.Menu"
+        eternal="true"
+        maxElementsInMemory="100"
+        overflowToDisk="false"
+        />
+      <cache name="com.googlecode.projecttemplate.model.Person"
+        maxElementsInMemory="1000"
+        eternal="false"
+        timeToIdleSeconds="1200"
+        timeToLiveSeconds="1800"
+        overflowToDisk="true"
+        />
+</ehcache>

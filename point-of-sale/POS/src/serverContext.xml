@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+       <!--menjalankan embedded http server jre6-->
+       <bean class="org.springframework.remoting.support.SimpleHttpServerFactoryBean">
+           <property name="contexts">
+               <map>
+                   <entry key="/ArsipService" value-ref="arsipServiceExporter"/>
+                   <entry key="/SecurityService" value-ref="securityServiceExporter"/>
+                   <entry key="/app" value-ref="jnlpHandler"/>
+               </map>
+           </property>
+           <property name="port" value="9090"/>
+           <property name="hostname" value="127.0.0.1"/>
+       </bean>
+       <!--menexport service sebagai httpinvoker agar bisa dipanggil dari client -->
+       <bean id="masterServiceExporter"
+        class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter">
+            <property name="service" ref="masterService"/>
+            <property name="serviceInterface" value="com.artivisi.pos.service.MasterService"/>
+        </bean>
+       <bean id="sekuritiServiceExporter"
+        class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter">
+            <property name="service" ref="securityService"/>
+            <property name="serviceInterface" value="com.artivisi.pos.service.SekuritiService"/>
+        </bean>
+       <bean id="reportServiceExporter"
+        class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter">
+            <property name="service" ref="reportService"/>
+            <property name="serviceInterface" value="com.artivisi.pos.service.ReportService"/>
+        </bean>
+       <bean id="transaksiServiceExporter"
+        class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter">
+            <property name="service" ref="transaksiService"/>
+            <property name="serviceInterface" value="com.artivisi.pos.service.TransaksiService"/>
+        </bean>
+        <bean id="jnlpHandler" class="com.artivisi.pos.server.JnlpHandler"/>
+            
+
+</beans>

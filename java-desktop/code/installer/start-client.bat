@@ -1,0 +1,1 @@
+java -cp POS.jar;lib/* com.googlecode.projecttemplate.pos.Main

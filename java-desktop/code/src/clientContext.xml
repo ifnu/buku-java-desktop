@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-2.5.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <context:property-placeholder location="classpath:server.properties"/>
+
+    <bean id="personService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+        p:serviceUrl="http://${server.ip}:${server.port}/PersonService"
+        p:serviceInterface="com.googlecode.projecttemplate.pos.service.PersonService">
+    </bean> 
+    <bean id="productService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+        p:serviceUrl="http://${server.ip}:${server.port}/ProductService"
+        p:serviceInterface="com.googlecode.projecttemplate.pos.service.ProductService">
+    </bean>
+    <bean id="purchaseService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+        p:serviceUrl="http://${server.ip}:${server.port}/PurchaseService"
+        p:serviceInterface="com.googlecode.projecttemplate.pos.service.PurchaseService">
+    </bean>
+    <bean id="reportService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+        p:serviceUrl="http://${server.ip}:${server.port}/ReportService"
+        p:serviceInterface="com.googlecode.projecttemplate.pos.service.ReportService">
+    </bean>
+    <bean id="salesService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+        p:serviceUrl="http://${server.ip}:${server.port}/SalesService"
+        p:serviceInterface="com.googlecode.projecttemplate.pos.service.SalesService">
+    </bean>
+    <bean id="securityService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+        p:serviceUrl="http://${server.ip}:${server.port}/SecurityService"
+        p:serviceInterface="com.googlecode.projecttemplate.pos.service.SecurityService">
+    </bean>
+</beans>

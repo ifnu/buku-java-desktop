@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="http://localhost:9090/app/" href="arsip.jnlp">
+    <information>
+        <title>Arsip Application</title>
+        <vendor>ITQON</vendor>
+        <homepage href="http://itqon.co.id"/>
+        <description>Aplikasi arsip</description>
+        <description kind="short">Aplikasi Arsip</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <!-- launcher harusnya juga ambil data dari xml jnlp ini?-->
+        <j2se version="1.6+"/>
+        <jar eager="true" href="training-itqon-2.jar" main="true"/>
+        <jar href="jcalendar-1.3.2.jar"/>
+        <jar href="commons-collections-2.1.1.jar"/>
+        <jar href="commons-logging-1.1.jar"/>
+        <jar href="ejb3-persistence.jar"/>
+        <jar href="spring.jar"/>
+        <jar href="hibernate3.jar"/>
+        <jar href="cglib-2.1.3.jar"/>
+        <jar href="asm.jar"/>
+        <jar href="asm-attrs.jar"/>
+    </resources>
+    <application-desc main-class="id.co.itqon.training.Main">
+    </application-desc>
+</jnlp>

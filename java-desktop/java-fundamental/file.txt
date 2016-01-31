@@ -1,0 +1,2 @@
+HelloWorld ini file text saya
+ini text di baris dua

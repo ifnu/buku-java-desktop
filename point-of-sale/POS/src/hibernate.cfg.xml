@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- daftar class yang dimapping -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+    <mapping class="com.artivisi.pos.model.master.Produk"/>
+    <mapping class="com.artivisi.pos.model.master.ProdukSatuan"/>
+    <mapping class="com.artivisi.pos.model.master.Satuan"/>
+    <mapping class="com.artivisi.pos.model.master.PulsaElektrik"/>
+    <mapping class="com.artivisi.pos.model.master.Cabang"/>
+    <mapping class="com.artivisi.pos.model.master.Kassa"/>
+    <mapping class="com.artivisi.pos.model.master.KartuPembayaran"/>
+    <mapping class="com.artivisi.pos.model.master.Shift"/>
+    <mapping class="com.artivisi.pos.model.master.RunningNumber"/>
+    <mapping class="com.artivisi.pos.model.master.SystemProperty"/>
+    <mapping class="com.artivisi.pos.model.sekuriti.Menu"/>
+    <mapping class="com.artivisi.pos.model.sekuriti.Pengguna"/>
+    <mapping class="com.artivisi.pos.model.sekuriti.Peran"/>
+    <mapping class="com.artivisi.pos.model.transaksi.Penjualan"/>
+    <mapping class="com.artivisi.pos.model.transaksi.PenjualanDetail"/>
+    <mapping class="com.artivisi.pos.model.transaksi.Pembelian"/>
+    <mapping class="com.artivisi.pos.model.transaksi.PembelianDetail"/>
+    <mapping class="com.artivisi.pos.model.transaksi.Pembayaran"/>
+    <mapping class="com.artivisi.pos.model.transaksi.SesiKassa"/>
+    <mapping class="com.artivisi.pos.model.transaksi.SaldoStok"/>
+  </session-factory>
+</hibernate-configuration>

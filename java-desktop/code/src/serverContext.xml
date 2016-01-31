@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-2.5.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <bean class="org.springframework.remoting.support.SimpleHttpServerFactoryBean">
+        <property name="contexts">
+            <map>
+                <entry key="/PersonService"
+                    value-ref="personServiceHttpInvoker"/>
+                <entry key="/ProductService"
+                    value-ref="productServiceHttpInvoker"/>
+                <entry key="/PurchaseService"
+                    value-ref="purchaseServiceHttpInvoker"/>
+                <entry key="/ReportService"
+                    value-ref="reportServiceHttpInvoker"/>
+                <entry key="/SalesService"
+                    value-ref="salesServiceHttpInvoker"/>
+                <entry key="/SecurityService"
+                    value-ref="securityServiceHttpInvoker"/>
+            </map>
+        </property>
+        <property name="port" value="9090"/>
+    </bean>
+    <bean id="personServiceHttpInvoker"
+      class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter"
+      p:service-ref="personService"
+      p:serviceInterface="com.googlecode.projecttemplate.pos.service.PersonService"/>
+    <bean id="productServiceHttpInvoker"
+      class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter"
+      p:service-ref="productService"
+      p:serviceInterface="com.googlecode.projecttemplate.pos.service.ProductService"/>
+    <bean id="purchaseServiceHttpInvoker"
+      class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter"
+      p:service-ref="purchaseService"
+      p:serviceInterface="com.googlecode.projecttemplate.pos.service.PurchaseService"/>
+    <bean id="reportServiceHttpInvoker"
+      class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter"
+      p:service-ref="reportService"
+      p:serviceInterface="com.googlecode.projecttemplate.pos.service.ReportService"/>
+    <bean id="salesServiceHttpInvoker"
+      class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter"
+      p:service-ref="salesService"
+      p:serviceInterface="com.googlecode.projecttemplate.pos.service.SalesService"/>
+    <bean id="securityServiceHttpInvoker"
+      class="org.springframework.remoting.httpinvoker.SimpleHttpInvokerServiceExporter"
+      p:service-ref="securityService"
+      p:serviceInterface="com.googlecode.projecttemplate.pos.service.SecurityService"/>
+</beans>

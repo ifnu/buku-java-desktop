@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<installation version="1.0">
+    <info>
+        <appname>POS Bangkit Cell</appname>
+        <appversion>1.0</appversion>
+        <authors>
+            <author name="Ifnu Bima" email="ifnubima@gmail.com"/>
+        </authors>
+        <url>http://project-template.googlecode.com</url>
+    </info>
+    <guiprefs width="640" height="480" resizable="yes"/>
+    <locale>
+        <langpack iso3="eng"/>
+    </locale>
+    <resources>
+        <res id="LicencePanel.licence" src="installer/Licence.txt"/>
+        <res id="InfoPanel.info" src="installer/Readme-client.txt"/>
+    </resources>
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="InfoPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
+    <packs>
+        <pack name="POS Client" required="yes">
+            <description>POS Client</description>
+            <file src="installer/Readme-client.txt" targetdir="$INSTALL_PATH"/>
+            <file src="installer/Licence.txt" targetdir="$INSTALL_PATH"/>
+            <file src="lib" targetdir="$INSTALL_PATH"/>
+            <file src="dist/POS.jar" targetdir="$INSTALL_PATH"/>
+            <file src="installer/start-client.bat" targetdir="$INSTALL_PATH" condition="izpack.windowsinstall"/>
+            <file src="installer/start-client.sh" targetdir="$INSTALL_PATH" condition="!izpack.windowsinstall"/>
+        </pack>
+    </packs>
+</installation>
